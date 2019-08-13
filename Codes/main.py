@@ -43,7 +43,7 @@ epochs = 1500
 dimensions = 3 #set en 3 o 4, dependiendo de la red neuronal a aplicar,
 # si la primera capa es conv1d aplicar 3, si es conv2d, aplicar 4
 for j in range(len(datasets)):
-	X, y = load_data(direc, datasets[j], dimensions)
+	X, y = load_datasets.load_data(direc, datasets[j], dimensions)
 	print(X.shape)
 	print(y.shape)
 
@@ -57,16 +57,16 @@ for j in range(len(datasets)):
 	preprocesing = False
 	# Procesamiento de los datos
 	if standarize == True:
-	  	X_train1, X_test1 = standardize_data(X_train, X_test)
+	  	X_train1, X_test1 = load_datasets.standardize_data(X_train, X_test)
 
 	if rescale == True:
-		X_train, X_test = rescale_data(X_train, X_test)
+		X_train, X_test = load_datasets.rescale_data(X_train, X_test)
 
 	if normalize == True:
-		X_train, X_test = normalize_data(X_train, X_test)
+		X_train, X_test = load_datasets.normalize_data(X_train, X_test)
 
 	if preprocesing == True:
-		X_train, X_test = preprocesing_data(X_train, X_test)
+		X_train, X_test = load_datasets.preprocesing_data(X_train, X_test)
 
 	#print("Despues de ....")
 	#plot_dist.plot_variable_distributions(X_train)
@@ -75,13 +75,13 @@ for j in range(len(datasets)):
 	model, history = m_bilstm_resnet.bilstm_resnet(X_train, y_train, X_test, y_test, epochs, batch_size, path, earlystop = 1)
 
 	# plot del entrenamiento y test
-	plot_history(history, path)
+	get_history.plot_history(history, path)
 
 	path2 = 'Resultados por dataset/'+datasets[j]+'/'+red+'/'+datasets[j]+'_'+str(i)+'_2500_epochs_'+str(batch_size)+'_batch'
 
-	save_hist(path2+'_hist', history)
+	load_model.save_hist(path2+'_hist', history)
 	#info.save_model(path2+'_model', model)
-	saved_model = load_model(path+'_best_model.h5')
+	saved_model = load_model.load_model(path+'_best_model.h5')
 
 	# Evaluación del modeloX
 	_, score = saved_model.evaluate(X_test, y_test, batch_size=batch_size, verbose=2)
@@ -102,7 +102,7 @@ for j in range(len(datasets)):
 
 	### Curva roc y area bajo la curva
 
-	fpr, tpr, roc_auc = compute_roc(y_test, y_score)
+	fpr, tpr, roc_auc = get_stats.compute_roc(y_test, y_score)
 
 	resultados = dict()
 
@@ -115,32 +115,32 @@ for j in range(len(datasets)):
 	resultados["roc_auc_macro"] = float(roc_auc["macro"])
 	resultados["roc_auc_micro"] = float(roc_auc["micro"])
 
-	plot_curvaROC(fpr, tpr, roc_auc, path)
+	get_stats.plot_curvaROC(fpr, tpr, roc_auc, path)
 
 
 	#confusion_matrix = evaluate.get_confusion_matrix(y_test_c, y_score_classes)
 	#resultados["confusion_matrix"] = confusion_matrix .tolist()
 
-	resultados["kappa"] = get_kappa(y_test_c, y_score_classes)
+	resultados["kappa"] = get_stats.get_kappa(y_test_c, y_score_classes)
 	#kappa.append(kappa_c)
 
 	#report = evaluate.get_classification_report(y_test_c, y_score_classes)
 
-	resultados["log_loss"] = get_log_loss(y_test, y_score)
+	resultados["log_loss"] = get_stats.get_log_loss(y_test, y_score)
 	#log_loss.append(log_loss_c)
 
-	resultados["accuracy"] = get_accuracy(y_test_c, y_score_classes)
+	resultados["accuracy"] = get_stats.get_accuracy(y_test_c, y_score_classes)
 	#accuracy.append(accuracy_c)
 
-	f1_macro_c, f1_micro_c = get_f1(y_test_c, y_score_classes)
+	f1_macro_c, f1_micro_c = get_stats.get_f1(y_test_c, y_score_classes)
 	resultados["f1_macro"] = f1_macro_c
 	resultados["f1_micro"] = f1_micro_c
 
-	recall_macro_c, recall_micro_c = get_recall(y_test_c, y_score_classes)
+	recall_macro_c, recall_micro_c = get_stats.get_recall(y_test_c, y_score_classes)
 	resultados["recall_macro"] = recall_macro_c
 	resultados["recall_micro"] = recall_micro_c
 
-	precision_macro_c, precision_micro_c = get_precision(y_test_c, y_score_classes)
+	precision_macro_c, precision_micro_c = get_stats.get_precision(y_test_c, y_score_classes)
 	resultados["precision_macro"] = precision_macro_c
 	resultados["precision_micro"] = precision_micro_c
-	save_results('Resultados por dataset/'+datasets[j]+'/'+red+'/'+datasets[j]+'_resultados'+'_'+str(i), resultados)
+	load_model.save_results('Resultados por dataset/'+datasets[j]+'/'+red+'/'+datasets[j]+'_resultados'+'_'+str(i), resultados)
