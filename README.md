@@ -58,12 +58,16 @@ A continuación se presentan los resultados generales para todos los modelos imp
 | **Ranking Promedio** | **5.807** | **5.931** | **6.557** | **7.170** | **6.955** | **6.261** | **4.886** | **3.057** | **5.182** | **3.193** |
 | | (5) | (6) | (8) | (10) | (9) | (7) | (3) | (1) | (4) | (2) |
 
+Finalmente a partir de todos los resultados presentados anteriormente se seleccionan los modelos bilstm_resnet y bilstm_FCN para realizar las respectivas comparaciones con otros modelos de la literatura.
+
+## Comparación con otros enfoques de deep learning
 A continuación se presentan los resultados generales de las diferencias críticas para todos los modelos y los conjuntos de datos bajo la métrica del accuracy, obtenidos del estudio de Fawaz et al. (2019), queagrupa la revisión de los últimos modelos de la literatura enfocados en el aprendizaje profundo.
 
 ![alt text](https://github.com/danyrubiano/deepTSC/blob/master/Images/CD_nm_deep.png)
 
-A  partir  de  ello,  se  puede  afirmar  la  supremacía  en  rendimiento  bajo  la  métrica del  accuracy  que  alcanzaron  a  nivel  general  los  modelos  híbridos  de  aprendizaje  profundo implementados en el presente trabajo, lo que refleja el poder que presenta la combinación dearquitecturas convolucionales y recurrentes para afrontar los problemas de TSC, en comparación con enfoques puramente convolucionales o recurrentes.
+A  partir  de  ello,  se  puede  afirmar  la  supremacía  en  rendimiento  bajo  la  métrica del  accuracy  que  alcanzaron  a  nivel  general  los  modelos  híbridos  de  aprendizaje  profundo implementados en el presente trabajo, lo que refleja el poder que presenta la combinación de arquitecturas convolucionales y recurrentes para afrontar los problemas de TSC, en comparación con enfoques puramente convolucionales o puramente recurrentes.
 
+## Comparación con otros enfoques de la literatura
 A continuación se presentan los resultados generales bajo la métrica del accuracy para varios modelos con diversos enfoques, obtenidos del estudio de (Lines et al., 2018), en con-junto con los modelos aquí propuestos.
 
 ![alt text](https://github.com/danyrubiano/deepTSC/blob/master/Images/CD_nm_acc.png)
