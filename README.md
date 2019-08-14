@@ -58,7 +58,10 @@ A continuación se presentan los resultados generales para todos los modelos imp
 | **Ranking Promedio** | **5.807** | **5.931** | **6.557** | **7.170** | **6.955** | **6.261** | **4.886** | **3.057** | **5.182** | **3.193** |
 | | (5) | (6) | (8) | (10) | (9) | (7) | (3) | (1) | (4) | (2) |
 
-Finalmente a partir de todos los resultados presentados anteriormente se seleccionan los modelos bilstm_resnet y bilstm_FCN para realizar las respectivas comparaciones con otros modelos de la literatura.
+Finalmente a partir de todos los resultados presentados anteriormente se seleccionan los modelos bilstm_resnet y bilstm_FCN para realizar las respectivas comparaciones con otros modelos de la literatura, cuyaas arquitecturas son las siguientes.
+
+![alt text](https://github.com/danyrubiano/deepTSC/blob/master/Images/Arquitectutra_10.PNG)
+![alt text](https://github.com/danyrubiano/deepTSC/blob/master/Images/Arquitectutra_12.PNG)
 
 ## Comparación con otros enfoques de deep learning
 A continuación se presentan los resultados generales de las diferencias críticas para todos los modelos y los conjuntos de datos bajo la métrica del accuracy, obtenidos del estudio de Fawaz et al. (2019), queagrupa la revisión de los últimos modelos de la literatura enfocados en el aprendizaje profundo.
