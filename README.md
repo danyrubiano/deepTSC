@@ -54,3 +54,7 @@ Para  ello  se  implementaron  diez  diversas  arquitecturas  variando  el  orde
 | **Ganados** | **15** | **12** | **11** | **9** | **9** | **11** | **18** | **36** | **15** | **23** |
 | **Ranking Promedio** | **5.886** | **6.090** | **6.465** | **7.125** | **7.022** | **6.079** | **4.909** | **2.920** | **5.227** | **3.272** |
 | | (5) | (7) | (8) | (10) | (9) | (6) | (3) | (1) | (4) | (2) |
+
+![alt text](https://github.com/danyrubiano/deepTSC/blob/master/Images/CD_nm_deep.png)
+
+![alt text](https://github.com/danyrubiano/deepTSC/blob/master/Images/CD_nm_acc.png)
